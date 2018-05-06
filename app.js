@@ -1,13 +1,83 @@
 'use strict';
+var c = document.getElementById("hangCanvas");
+    var ctx = c.getContext("2d");
+    var x = 200;
+    var y = 100;
+
+    function drawGallows() {
+        // gallows filled triangle
+        ctx.fillStyle = 'steelblue';
+        ctx.beginPath();
+        ctx.moveTo(25, 25);
+        ctx.lineTo(105, 25);
+        ctx.lineTo(25, 105);
+        ctx.fill();
+    
+ 
+     //line gallows vert    
+     ctx.moveTo(25, 21);
+     ctx.lineTo(25, 475);
+     ctx.stroke();
+ 
+     // line gallows horiz
+     ctx.moveTo(25, 25);
+     ctx.lineTo(250, 25);
+     ctx.stroke();
+  }
+
+function drawHead(){
+    //circle
+    ctx.fillStyle = 'pink';
+    ctx.strokeStyle='pink';
+    ctx.lineWidth=8;
+    ctx.beginPath();
+    ctx.arc(x, y, 40, 0, 2 * Math.PI);
+    ctx.stroke(); 
+    ctx.fill(); 
+ }
+
+ function drawBody() {
+    //draw line body
+    ctx.strokeStyle='pink';
+    ctx.moveTo(x, y + 40);
+    ctx.lineTo(x, y + 160);
+    ctx.stroke();
+
+ }
+
+ function drawLeftArm() {
+     //line left arm
+    ctx.moveTo(x, y + 50);
+    ctx.lineTo(x-60, y + 90);
+    ctx.stroke();
+ }
+ function drawRightArm() {
+     //line right arm
+    ctx.moveTo(x, y + 50);
+    ctx.lineTo(x + 60, y + 90);
+    ctx.stroke();
+ }
+ function drawLeftLeg() {
+    //line left leg
+    ctx.moveTo(x, y + 157);
+    ctx.lineTo(x - 40, y + 260);
+    ctx.stroke();
+ }
+ function drawRightLeg() {
+    //line right leg
+    ctx.moveTo(x, y + 157);
+    ctx.lineTo(x + 40, y + 260);
+    ctx.stroke();
+ }
+
 //getting input from the field
 var userGuess = document.getElementById('guess');
 var guessed = userGuess.value.trim().toLowerCase();
 var displayArray = []; 
+
 // variable for turning letters into dashes??
 var pastaSpl = [];
 var maxGuesses = 0;
-
-
 var displayLetters = '';
 //guess function
 function letterGuess() {
@@ -34,6 +104,8 @@ function letterGuess() {
     p.textContent = displayLetters;
     console.log(pastaSpl.includes(guessed));
 
+    
+
     for(var i = 0; i < pastaSpl.length; i++); {
         if(pastaSpl.includes(guessed)) {
             console.log(pastaSpl.indexOf(guessed)); 
@@ -47,20 +119,27 @@ function letterGuess() {
             maxGuesses++;
             console.log('amount for', maxGuesses);
             if(maxGuesses === 1) {
-                document.getElementById('head').removeAttribute("hidden");
+                drawHead();
+                drawGallows();
+                //document.getElementById('head').removeAttribute("hidden");
             } else if(maxGuesses === 2){
-                document.getElementById('body').removeAttribute("hidden");
+                drawBody();
+                //document.getElementById('body').removeAttribute("hidden");
             } else if(maxGuesses === 3){
-                document.getElementById('left-arm').removeAttribute("hidden");
+                drawLeftArm()
+                //document.getElementById('left-arm').removeAttribute("hidden");
             } else if (maxGuesses === 4){
-                document.getElementById('right-arm').removeAttribute("hidden");
+                drawRightArm();
+                //document.getElementById('right-arm').removeAttribute("hidden");
             } else if (maxGuesses === 5){
-                document.getElementById('left-leg').removeAttribute("hidden");
+                drawLeftLeg();
+                //document.getElementById('left-leg').removeAttribute("hidden");
             } else if(maxGuesses === 6){
-                document.getElementById('right-leg').removeAttribute("hidden");
+                drawRightLeg();
+                //document.getElementById('right-leg').removeAttribute("hidden");
             } else {
                 alert('You lost.');
-                document.getElementById('submit').disabled = true;
+                //document.getElementById('submit').disabled = true;
             }
         }
     }
@@ -115,6 +194,7 @@ function randomNumber(amount){
     return Math.floor(Math.random(amount) * words.length);
 
 }
+
 
 
 // still trying to get this working wordLength and testSTRING VAR

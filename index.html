@@ -21,18 +21,13 @@
     <p hidden id="left-leg">Left leg</p>
 
   
-    <canvas class="myCanvas">
-            <p>Can you see me?.</p>
-
-    <script src = "bodyparts.js"></script>
-    </canvas>
+    <div>
+            <canvas id="hangCanvas" width="400" height="475" style="border:1px solid black; background-color: rgb(205, 248, 234)"></canvas>
+            
+            <script src = "draw.js"></script> 
+        </div>
     
-
-
-
-
-
-    <h2>Word</h2>
+<h2>Word</h2>
 
     <input id="guess" onfocus="this.value=''" maxlength="1">
 
@@ -45,16 +40,11 @@
     <p id="correctOnScreen"></p>
 
     <p id="inputDisplay"></p>
+    
 
     
 <script src = "words.js"></script>
 <script src = "app.js"></script>
-
-
-
-
-
-
 
     
 </body>
