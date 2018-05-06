@@ -1,3 +1,5 @@
+'use strict';
+
 function changeText(id) {
     id.innerHTML = "hi there.";
 }
@@ -17,3 +19,7 @@ function myMove() {
         }
     }
 }
+
+
+
+
