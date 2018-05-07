@@ -1,29 +1,29 @@
 'use strict';
 var c = document.getElementById("hangCanvas");
-    var ctx = c.getContext("2d");
-    var x = 200;
-    var y = 100;
+var ctx = c.getContext("2d");
+var x = 200;
+var y = 100;
 
-    function drawGallows() {
-        // gallows filled triangle
-        ctx.fillStyle = 'steelblue';
-        ctx.beginPath();
-        ctx.moveTo(25, 25);
-        ctx.lineTo(105, 25);
-        ctx.lineTo(25, 105);
-        ctx.fill();
+function drawGallows() {
+    // gallows filled triangle
+    ctx.fillStyle = 'steelblue';
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(105, 25);
+    ctx.lineTo(25, 105);
+    ctx.fill();
     
  
-     //line gallows vert    
-     ctx.moveTo(25, 21);
-     ctx.lineTo(25, 475);
-     ctx.stroke();
+    //line gallows vert    
+    ctx.moveTo(25, 21);
+    ctx.lineTo(25, 475);
+    ctx.stroke();
  
-     // line gallows horiz
-     ctx.moveTo(25, 25);
-     ctx.lineTo(250, 25);
-     ctx.stroke();
-  }
+    // line gallows horiz
+    ctx.moveTo(25, 25);
+    ctx.lineTo(250, 25);
+    ctx.stroke();
+}
 
 function drawHead(){
     //circle
@@ -46,23 +46,26 @@ function drawHead(){
  }
 
  function drawLeftArm() {
-     //line left arm
+    //line left arm
     ctx.moveTo(x, y + 50);
     ctx.lineTo(x-60, y + 90);
     ctx.stroke();
  }
+
  function drawRightArm() {
-     //line right arm
+    //line right arm
     ctx.moveTo(x, y + 50);
     ctx.lineTo(x + 60, y + 90);
     ctx.stroke();
  }
+
  function drawLeftLeg() {
     //line left leg
     ctx.moveTo(x, y + 157);
     ctx.lineTo(x - 40, y + 260);
     ctx.stroke();
  }
+
  function drawRightLeg() {
     //line right leg
     ctx.moveTo(x, y + 157);
@@ -85,8 +88,6 @@ function letterGuess() {
     var guessed = userGuess.value.trim().toLowerCase();
     console.log(guessed);
 
-
-
     //updates letters in string
     if(displayLetters.includes(guessed)){
         alert('You already guessed ' + guessed + ', please try another');
@@ -99,26 +100,27 @@ function letterGuess() {
         displayLetters += guessed + ', ';
     }
 
-    //changes the text on screen for display
-    var p = document.getElementById('inputDisplay');
-    p.textContent = displayLetters;
-    console.log(pastaSpl.includes(guessed));
+//changes the text on screen for display
+var p = document.getElementById('inputDisplay');
+p.textContent = displayLetters;
+console.log(pastaSpl.includes(guessed));
 
     
 
-    for(var i = 0; i < pastaSpl.length; i++); {
-        if(pastaSpl.includes(guessed)) {
-            console.log(pastaSpl.indexOf(guessed)); 
-            var arrayPosition = pastaSpl.indexOf(guessed);
-            displayArray[arrayPosition] = guessed;
-            console.log(displayArray);
-            console.log('this is our display array', displayArray);
-            var p2 = document.getElementById("wordOnScreen");
-            p2.textContent = displayArray.join('');   
-        } else {
-            maxGuesses++;
-            console.log('amount for', maxGuesses);
-            if(maxGuesses === 1) {
+for(var i = 0; i < pastaSpl.length; i++); {
+    if(pastaSpl.includes(guessed)) {
+        console.log(pastaSpl.indexOf(guessed)); 
+        var arrayPosition = pastaSpl.indexOf(guessed);
+        displayArray[arrayPosition] = guessed;
+        console.log(displayArray);
+        console.log('this is our display array', displayArray);
+        var p2 = document.getElementById("wordOnScreen");
+        p2.textContent = displayArray.join('');   
+        } 
+            else {
+                maxGuesses++;
+                console.log('amount for', maxGuesses);
+                if(maxGuesses === 1) {
                 drawHead();
                 drawGallows();
                 //document.getElementById('head').removeAttribute("hidden");
