@@ -73,6 +73,11 @@ function drawHead(){
     ctx.stroke();
  }
 
+ function youLoseCanvas() {
+     ctx.font = "25px Arial";
+     ctx.fillText("YOU LOSE!", 35, 440);
+ }
+
 //getting input from the field
 var userGuess = document.getElementById('guess');
 var guessed = userGuess.value.trim().toLowerCase();
@@ -138,6 +143,7 @@ for(var i = 0; i < pastaSpl.length; i++); {
                 //document.getElementById('left-leg').removeAttribute("hidden");
             } else if(maxGuesses === 6){
                 drawRightLeg();
+                youLoseCanvas();
                 //document.getElementById('right-leg').removeAttribute("hidden");
             } else {
                 alert('You lost.');

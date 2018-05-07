@@ -7,43 +7,42 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>Hang person</title>
 </head>
-<body>
-    <h1>Hang Person</h1>
+    <body>
+        <h1>Hang Person</h1>
 
-    <section> 
-    <h2>The Gallows</h2>
+        <h2>The Gallows</h2>
 
-    <p hidden id="head">Head</p>
-    <p hidden id="body">Body</p>
-    <p hidden id="left-arm">Left Arm</p>
-    <p hidden id="right-arm">Right arm</p>
-    <p hidden id="right-leg">Right leg</p>
-    <p hidden id="left-leg">Left leg</p>
+        <p hidden id="head">Head</p>
+        <p hidden id="body">Body</p>
+        <p hidden id="left-arm">Left Arm</p>
+        <p hidden id="right-arm">Right arm</p>
+        <p hidden id="right-leg">Right leg</p>
+        <p hidden id="left-leg">Left leg</p>
 
-  
-    <div>
-        <canvas id="hangCanvas" width="400" height="475" style="border:1px solid black; background-color: rgb(205, 248, 234)"></canvas>
-            
-        <script src = "draw.js"></script> 
+    
+        <div>
+            <canvas id="hangCanvas" width="400" height="475" style="border:1px solid black; background-color: rgb(205, 248, 234)"></canvas>
+                
+            <script src = "draw.js"></script> 
         </div>
-    
-    <h2>Word</h2>
+        
+        <h2>Word</h2>
 
-    <input id="guess" onfocus="this.value=''" maxlength="1">
+        <input id="guess" onfocus="this.value=''" maxlength="1">
 
-    <button id="submit" onclick="letterGuess()"> Submit
-    </button>
+        <button id="submit" onclick="letterGuess()"> Submit
+        </button>
 
-    <p id="wordOnScreen"></p>
+        <p id="wordOnScreen"></p>
 
-    <p id="correctOnScreen"></p>
+        <p id="correctOnScreen"></p>
 
-    <p id="inputDisplay"></p>
+        <p id="inputDisplay"></p>
 
-    
-<script src = "words.js"></script>
-<script src = "app.js"></script>
+        
+        <script src = "words.js"></script>
+        <script src = "app.js"></script>
 
-    
-</body>
+    </body>
+
 </html>
